@@ -1,9 +1,9 @@
+import { useState } from "react";
 import { StyledControl } from "./Control.styled";
 import PropTypes from "prop-types";
 import {
   BtnRepeat,
   BtnPrev,
-  BtnTogglePlay,
   BtnNext,
   BtnRandom,
   RepeatIcon,
@@ -14,9 +14,12 @@ import {
   RandomIcon,
   ProgressContain,
   ControlBtn,
+  BtnControlPlay,
 } from "./Control.styled";
 
 function Control({ item }) {
+  const [playBtn, setPlayBtn] = useState(false);
+
   return (
     <StyledControl>
       <ControlBtn>
@@ -26,10 +29,17 @@ function Control({ item }) {
         <BtnPrev>
           <PrevIcon />
         </BtnPrev>
-        <BtnTogglePlay>
-          <PauseIcon />
-          <PlayIcon />
-        </BtnTogglePlay>
+        <BtnControlPlay
+          onClick={() => {
+            setPlayBtn(!playBtn);
+          }}
+        >
+          {playBtn === true ? (
+            <PlayIcon play="true" />
+          ) : (
+            <PauseIcon play="true" />
+          )}
+        </BtnControlPlay>
         <BtnNext>
           <NextIcon />
         </BtnNext>
@@ -40,9 +50,8 @@ function Control({ item }) {
       <ProgressContain>
         <input
           id="progress"
-          className="progress"
           type="range"
-          value="0"
+          // value="0"
           step="1"
           min="0"
           max="100"

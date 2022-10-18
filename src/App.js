@@ -1,11 +1,10 @@
 import GlobalStyle from "./shared/globalStyle";
-import Player from "./component/Player";
-
+import PlayerContainer from "./container/PlayerContainer";
 function App() {
   return (
     <>
       <GlobalStyle />
-      <Player />
+      <PlayerContainer />
     </>
   );
 }

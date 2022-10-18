@@ -11,12 +11,12 @@ export const StyledSong = styled.div`
   background-color: #f5f5f5;
   opacity: ${(props) => (props.active ? "0.8" : "none")};
 `;
-export const SongThumb = styled.div`
+export const SongThumb = styled.img`
   width: 44px;
   height: 44px;
   border-radius: 50%;
   background-size: cover;
-  margin: 0 8px;
+  margin: 6px 8px;
   background-image: url("https://i.ytimg.com/vi/jTLhQf5KJSc/maxresdefault.jpg");
 `;
 export const SongBody = styled.div`

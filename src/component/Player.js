@@ -6,7 +6,7 @@ function Player() {
   return (
     <StyledPlayer>
       <Dashboard />
-      <PlayList />
+      <PlayList  />  
     </StyledPlayer>
   );
 }

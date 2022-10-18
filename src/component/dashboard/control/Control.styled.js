@@ -57,14 +57,17 @@ export const BtnTogglePlay = styled.div`
   height: 56px;
   border-radius: 50%;
   font-size: 24px;
-  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--primary-color);
 `;
-export const PauseIcon = styled(FaPause)``;
-export const PlayIcon = styled(FaPlay)``;
+export const PauseIcon = styled(FaPause)`
+  display: ${(props) => (props.play === "true" ? "block" : "none")};
+`;
+export const PlayIcon = styled(FaPlay)`
+  display: ${(props) => (props.play === "true" ? "block" : "none")};
+`;
 
 export const BtnNext = styled.div`
   cursor: pointer;
@@ -81,3 +84,9 @@ export const BtnRandom = styled.div`
   font-size: 18px;
 `;
 export const RandomIcon = styled(FaRandom)``;
+export const BtnControlPlay = styled.div`
+  cursor: pointer;
+  color: #666;
+  padding: 18px;
+  font-size: 18px;
+`;
