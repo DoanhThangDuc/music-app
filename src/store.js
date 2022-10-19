@@ -5,7 +5,7 @@ import actionsSlicer from "./features/actions/actionsSlicer";
 const store = configureStore({
   reducer: {
     songs: songsReducer,
-    actions: actionsSlicer,
+    controls: actionsSlicer,
   },
 });
 

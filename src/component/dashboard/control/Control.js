@@ -1,5 +1,10 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { StyledControl } from "./Control.styled";
+import {
+  changeCurrentSongStatus,
+  handleClickNext,
+} from "../../../features/actions/actionsSlicer";
 import PropTypes from "prop-types";
 import {
   BtnRepeat,
@@ -18,8 +23,13 @@ import {
 } from "./Control.styled";
 
 function Control({ item }) {
-  const [playBtn, setPlayBtn] = useState(false);
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state);
+  const playing = state.controls.playing;
 
+  const handleClickNextBtn = () => {
+    dispatch(handleClickNext(state.controls.idSongIsPlaying));
+  };
   return (
     <StyledControl>
       <ControlBtn>
@@ -31,16 +41,16 @@ function Control({ item }) {
         </BtnPrev>
         <BtnControlPlay
           onClick={() => {
-            setPlayBtn(!playBtn);
+            dispatch(changeCurrentSongStatus(!playing));
           }}
         >
-          {playBtn === true ? (
-            <PlayIcon play="true" />
-          ) : (
+          {playing === true ? (
             <PauseIcon play="true" />
+          ) : (
+            <PlayIcon play="true" />
           )}
         </BtnControlPlay>
-        <BtnNext>
+        <BtnNext onClick={handleClickNextBtn}>
           <NextIcon />
         </BtnNext>
         <BtnRandom>

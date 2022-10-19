@@ -1,12 +1,12 @@
 import { StyledCD, StyledCDThumb } from "./CD.styled";
 import PropTypes from "prop-types";
 
-function CD({ url }) {
+function CD({ songImg }) {
   return (
     <StyledCD>
       <StyledCDThumb>
         <img
-          src="https://i.ytimg.com/vi/jTLhQf5KJSc/maxresdefault.jpg"
+          src={songImg}
           alt="img"
         />
       </StyledCDThumb>

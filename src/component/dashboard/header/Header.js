@@ -1,9 +1,9 @@
 import { StyledHeader } from "./Header.styled.js";
-function Header() {
+function Header({ songName }) {
   return (
     <StyledHeader>
       <h4>Now playing:</h4>
-      <h2>String 57th & 9th</h2>
+      <h2>{songName}</h2>
     </StyledHeader>
   );
 }
